@@ -3,6 +3,7 @@
 .env
 application-local.properties
 aah-exchange-frontend/node_modules
+*.sql
 
 # Compiled class file
 *.class
