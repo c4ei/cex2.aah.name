@@ -4,11 +4,13 @@ java -version
 update-alternatives --config java
 sudo apt install maven
 
-
+1. ##### backend
 cd aah-exchange-backend
 mvn spring-boot:run
 (cd aah-exchange-backend && mvn spring-boot:run)
 
+2. ##### frontend
+cd aah-exchange-frontend && npm install && npm run build
 
 spring init --name=aah-exchange --build=maven --java-version=17 --packaging=jar --dependencies=web,data-jpa,mysql,lombok,security aah-exchange-backend
 
@@ -55,3 +57,13 @@ spring.datasource.password=
 - [ ] 단위/통합 테스트 작성
 - [ ] 빌드 및 배포 스크립트 작성
 - [ ] 최종 테스트 및 버그 수정
+
+
+
+
+
+----
+mkdir -p aah-exchange-backend/src/main/resources/static && cp -r aah-exchange-frontend/build/* aah-exchange-backend/src/main/resources/static/
+cd aah-exchange-backend && mvn clean install
+cd aah-exchange-backend && java -jar target/aah-exchange-backend-0.0.1-SNAPSHOT.jar
+
